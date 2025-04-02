@@ -1,0 +1,62 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "jawn",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "cwd": "${workspaceFolder}/valhalla/jawn",
+      "program": "${workspaceFolder}/valhalla/jawn/src/index.ts",
+      "request": "launch",
+      "restart": true,
+      "runtimeExecutable": "nodemon",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node"
+    },
+    {
+      "name": "Next.js: debug server-side",
+      "type": "node-terminal",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/web",
+      "command": "npm run dev"
+    },
+    {
+      "name": "Next.js: debug client-side",
+      "type": "chrome",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/web",
+      "url": "http://localhost:3000"
+    },
+    {
+      "name": "Next.js: debug full stack",
+      "cwd": "${workspaceFolder}/web",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/web/node_modules/.bin/next",
+      "runtimeArgs": ["--inspect"],
+      "skipFiles": ["<node_internals>/**"],
+      "serverReadyAction": {
+        "action": "debugWithEdge",
+        "killOnServerStop": true,
+        "pattern": "- Local:.+(https?://.+)",
+        "uriFormat": "%s",
+        "webRoot": "${workspaceFolder}"
+      }
+    },
+    {
+      "type": "node-terminal",
+      "name": "Score Example",
+      "request": "launch",
+      "command": "npm run start",
+      "cwd": "${workspaceFolder}/examples/score_example"
+    },
+    {
+      "type": "debugpy",
+      "request": "launch",
+      "name": "Python: Current File",
+      "program": "${file}",
+      "cwd": "${workspaceFolder}",
+      "justMyCode": false
+    }
+  ]
+}
